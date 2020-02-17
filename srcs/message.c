@@ -6,14 +6,15 @@
 /*   By: tstripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 15:28:05 by tstripeb          #+#    #+#             */
-/*   Updated: 2020/02/04 14:22:45 by tstripeb         ###   ########.fr       */
+/*   Updated: 2020/02/17 12:38:54 by tstripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pushswap.h"
 
-void ft_error_message(int i)
+int		ft_error_message(int i)
 {
 	if (i == -1)
 		write(1, "Error\n", 6);
+	return (0);
 }

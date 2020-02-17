@@ -6,7 +6,7 @@
 /*   By: tstripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 14:17:33 by tstripeb          #+#    #+#             */
-/*   Updated: 2020/02/04 17:24:17 by tstripeb         ###   ########.fr       */
+/*   Updated: 2020/02/17 14:08:04 by tstripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,15 @@ t_mas				*ft_create_masi(t_mas **tmp, int number);
 t_mas				*ft_one_elem_of_l(int number);
 int					ft_nums_el_of_mas(t_mas *tmp);
 t_mas				*ft_last_el_of_l(t_mas *temp);
-void				ft_error_message(int i);
-
+int					ft_error_message(int i);
+void				ft_read_commands(t_sort *sort);
+void					ft_check_and_work(char *command, t_sort *sort);
+void				ft_conclusionab(t_mas *a, t_mas *b);
+void				ft_commands_s(t_mas *a, t_mas *b, int flag);
+void				ft_commands_p(t_mas **first, t_mas **second);
+void				ft_commands_r(t_mas **mas);
+void				ft_commands_rr(t_mas **mas);
+void				ft_commands_rr_rrr(t_mas **a, t_mas **b, int flag);
+int					ft_sorting_good(t_mas *a);
 
 #endif

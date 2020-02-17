@@ -6,7 +6,7 @@
 /*   By: tstripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 16:32:39 by tstripeb          #+#    #+#             */
-/*   Updated: 2020/02/04 17:24:15 by tstripeb         ###   ########.fr       */
+/*   Updated: 2020/02/17 14:08:01 by tstripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	ft_create_list_masa(t_sort *sort, int ac, char **av)
 {
 	int	i;
 	int	value;
-	
+
 	av = (ac == 2 ? ft_strsplit(av[1], ' ') : av);
 	i = (ac == 2 ? i = 0 : 1);
 	while (ac == 2 ? (int)av[i] : i < ac)
@@ -62,8 +62,7 @@ void	ft_create_list_masa(t_sort *sort, int ac, char **av)
 		}
 		i++;
 	}
-	sort->nums = ft_nums_el_of_mas(sort->a);
-	//освободить память под av, если ac = 2
+	sort->nums = ft_nums_el_of_mas(sort->a);//освободить память под av, если ac = 2
 }
 
 t_sort	*ft_create_stack_sort(int ac, char **av)
