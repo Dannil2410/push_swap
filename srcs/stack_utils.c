@@ -6,7 +6,7 @@
 /*   By: tstripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 15:35:17 by tstripeb          #+#    #+#             */
-/*   Updated: 2020/02/04 16:06:28 by tstripeb         ###   ########.fr       */
+/*   Updated: 2020/02/18 14:23:49 by tstripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ int		ft_nums_el_of_mas(t_mas *tmp)
 
 	n = 0;
 	mas = tmp;
-	while (tmp)
+	while (mas)
 	{
 		n++;
-		tmp = tmp->next;
+		mas = mas->next;
 	}
 	return (n);
 }

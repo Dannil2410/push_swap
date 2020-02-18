@@ -6,7 +6,7 @@
 /*   By: tstripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 11:24:19 by tstripeb          #+#    #+#             */
-/*   Updated: 2020/02/17 14:08:07 by tstripeb         ###   ########.fr       */
+/*   Updated: 2020/02/18 14:39:10 by tstripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	ft_commands_p(t_mas **first, t_mas **second)
 		del = *second;
 		*second = (*second)->next;
 		del->next = NULL;
-		//освободиьть память для del
+		ft_mas_del(del);
 	}
 }
 

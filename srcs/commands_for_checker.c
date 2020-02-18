@@ -6,12 +6,11 @@
 /*   By: tstripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 16:36:13 by tstripeb          #+#    #+#             */
-/*   Updated: 2020/02/17 14:04:36 by tstripeb         ###   ########.fr       */
+/*   Updated: 2020/02/18 14:53:37 by tstripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pushswap.h"
-#include <stdio.h>
 
 int		ft_sorting_good(t_mas *a)
 {
@@ -28,7 +27,7 @@ int		ft_sorting_good(t_mas *a)
 		if (nbr > tmp->elem)
 		{
 			flag = 1;
-			break;
+			break ;
 		}
 	}
 	if (flag)
@@ -65,7 +64,7 @@ void	ft_conclusionab(t_mas *a, t_mas *b)
 	}
 }
 
-void		ft_check_and_work(char *command, t_sort *sort)
+void	ft_check_and_work(char *command, t_sort *sort)
 {
 	if (ft_strcmp(command, "sa") == 0)
 		ft_commands_s(sort->a, sort->b, 1);
@@ -90,7 +89,7 @@ void		ft_check_and_work(char *command, t_sort *sort)
 	else if (ft_strcmp(command, "rrr") == 0)
 		ft_commands_rr_rrr(&sort->a, &sort->b, 2);
 	else
-		ft_error_message(-1);//освободить полностью память для sort
+		ft_error(sort);
 }
 
 void	ft_read_commands(t_sort *sort)

@@ -6,7 +6,7 @@
 /*   By: tstripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 16:32:39 by tstripeb          #+#    #+#             */
-/*   Updated: 2020/02/17 14:08:01 by tstripeb         ###   ########.fr       */
+/*   Updated: 2020/02/18 14:49:54 by tstripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,10 @@ void	ft_create_list_masa(t_sort *sort, int ac, char **av)
 	int	value;
 
 	av = (ac == 2 ? ft_strsplit(av[1], ' ') : av);
-	i = (ac == 2 ? i = 0 : 1);
+	if (ac == 2)
+		i = 0;
+	else
+		i = 1;
 	while (ac == 2 ? (int)av[i] : i < ac)
 	{
 		if (ft_strcmp(av[i], "-v") == 0)
@@ -56,13 +59,14 @@ void	ft_create_list_masa(t_sort *sort, int ac, char **av)
 			value = ft_atoi(av[i]);
 			if ((ft_valid_val(value, av[i]) == 0) ||
 					(ft_double_val(sort->a, value) == 0))
-				ft_error_message(-1);//освобождение памяти и вывод error
+				ft_error(sort);
 			if ((ft_create_masi(&sort->a, value)) == NULL)
-				ft_error_message(-1);//освобождение памяти и вывод error
+				ft_error(sort);
 		}
 		i++;
 	}
-	sort->nums = ft_nums_el_of_mas(sort->a);//освободить память под av, если ac = 2
+	sort->nums = ft_nums_el_of_mas(sort->a);
+	av = (ac == 2 ? freetime(av, sort->nums, sort->flag_v) : NULL);
 }
 
 t_sort	*ft_create_stack_sort(int ac, char **av)

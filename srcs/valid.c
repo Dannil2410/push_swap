@@ -6,7 +6,7 @@
 /*   By: tstripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 17:11:20 by tstripeb          #+#    #+#             */
-/*   Updated: 2020/02/04 16:42:22 by tstripeb         ###   ########.fr       */
+/*   Updated: 2020/02/18 14:47:02 by tstripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,15 @@
 int	ft_valid_val(int value, char *str)
 {
 	char	*tmp;
+	int		result;
 
+	result = 0;
 	tmp = ft_itoa(value);
 	if (ft_strcmp(tmp, str) == 0)
-		return (1);
+		result = 1;
 	if (tmp)
 		free(tmp);
-	return (0);
+	return (result);
 }
 
 int	ft_double_val(t_mas *a, int value)
