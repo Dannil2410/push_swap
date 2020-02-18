@@ -6,7 +6,7 @@
 #    By: tstripeb <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/16 12:35:42 by tstripeb          #+#    #+#              #
-#    Updated: 2020/02/17 13:33:46 by tstripeb         ###   ########.fr        #
+#    Updated: 2020/02/18 15:03:15 by tstripeb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 			make -C libft
 					gcc -o $(NAME) $(FLAGS) $(OBJ) libft/libft.a
-							echo "Checker done"
+							@echo "Checker done"
 
 clean:
 			make clean -C libft

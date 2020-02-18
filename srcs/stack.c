@@ -6,7 +6,7 @@
 /*   By: tstripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 16:32:39 by tstripeb          #+#    #+#             */
-/*   Updated: 2020/02/18 14:49:54 by tstripeb         ###   ########.fr       */
+/*   Updated: 2020/02/18 16:16:40 by tstripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,9 +78,9 @@ t_sort	*ft_create_stack_sort(int ac, char **av)
 	new->a = NULL;
 	new->b = NULL;
 	new->nums = 0;
-	new->len_a = 0;
 	new->len_b = 0;
 	new->flag_v = 0;
 	ft_create_list_masa(new, ac, av);
+	new->len_a = new->nums;
 	return (new);
 }
