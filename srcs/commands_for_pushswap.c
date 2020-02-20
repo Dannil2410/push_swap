@@ -6,18 +6,26 @@
 /*   By: tstripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 16:19:53 by tstripeb          #+#    #+#             */
-/*   Updated: 2020/02/18 17:38:57 by tstripeb         ###   ########.fr       */
+/*   Updated: 2020/02/19 18:01:27 by tstripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pushswap.h"
 
-int		ft_comparefirsttwoelem(t_mas *mas)
+int		ft_comparefirsttwoelem(t_mas *mas, int flag)
 {
-	if (mas->elem > mas->elem->next)
-		return (1);
-	else
-		return (0);
+	if (mas && mas->next)
+	{
+		if (mas->elem > mas->next->elem && flag == 1)
+			return (1);
+		else if (mas->elem < mas->next->elem && flag == 1)
+			return (0);
+		if (mas->elem < mas->next->elem && flag == 2)
+			return (1);
+		else if (mas->elem > mas->next->elem && flag == 2)
+			return (0);
+	}
+	return (0);
 }
 
 int		ft_increasetolast(t_mas *mas)
@@ -32,7 +40,7 @@ int		ft_increasetolast(t_mas *mas)
 		tmp = tmp->next;
 		if (tmp->next->next == NULL)
 		{
-			if (tmp->elem > tmp->next->elem)
+			if (mas->elem > tmp->next->elem)
 				return (1);
 			else
 				return (2);
@@ -48,7 +56,7 @@ int		ft_increasewithsecond(t_mas *mas)
 
 	tmp = mas->next;
 	result = 1;
-	while (tmp->next)
+	while (tmp && tmp->next)
 	{
 		if (tmp->elem > tmp->next->elem)
 		{
@@ -57,7 +65,7 @@ int		ft_increasewithsecond(t_mas *mas)
 		}
 		tmp = tmp->next;
 	}
-	if (mas->elem > mas->next->elem && result == 1)
+	if (mas->elem > mas->next->elem && result == 1 && mas->elem > tmp->elem)
 		return (result);
 	else if (mas->elem < mas->next->elem && result == 1)
 		return (result + 1);

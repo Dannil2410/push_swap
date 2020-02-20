@@ -6,7 +6,7 @@
 /*   By: tstripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 16:36:13 by tstripeb          #+#    #+#             */
-/*   Updated: 2020/02/18 16:59:27 by tstripeb         ###   ########.fr       */
+/*   Updated: 2020/02/20 17:41:41 by tstripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	ft_conclusionab(t_mas *a, t_mas *b)
 	}
 }
 
-void	ft_check_and_work(char *command, t_sort *sort)
+void	ft_check_and_work(char *command, t_sort *sort, int flag)
 {
 	if (ft_strcmp(command, "sa") == 0)
 		ft_commands_s(sort->a, sort->b, 1);
@@ -90,6 +90,7 @@ void	ft_check_and_work(char *command, t_sort *sort)
 		ft_commands_rr_rrr(&sort->a, &sort->b, 2);
 	else
 		ft_error(sort);
+	(flag == 1 ? ft_putcommand(command) : 0);
 }
 
 void	ft_read_commands(t_sort *sort)
@@ -98,12 +99,14 @@ void	ft_read_commands(t_sort *sort)
 
 	while (get_next_line(0, &command) > 0)
 	{
-		ft_check_and_work(command, sort);
+		ft_check_and_work(command, sort, 0);
 		if (command)
 			ft_strdel(&command);
 		if (sort->flag_v)
+		{
 			ft_conclusionab(sort->a, sort->b);
-		ft_putstr("\na | b\n-----\n");
+			ft_putstr("\na | b\n-----\n");
+		}
 	}
 	if (sort->b == NULL && ft_sorting_good(sort->a))
 		ft_putstr("OK\n");

@@ -6,7 +6,7 @@
 /*   By: tstripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 15:28:05 by tstripeb          #+#    #+#             */
-/*   Updated: 2020/02/18 15:55:52 by tstripeb         ###   ########.fr       */
+/*   Updated: 2020/02/20 17:41:47 by tstripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,10 @@ void	ft_error(t_sort *sort)
 	ft_sort_del(sort);
 	write(1, "Error\n", 6);
 	exit(0);
+}
+
+void	ft_putcommand(char *command)
+{
+	ft_putstr(command);
+	ft_putchar('\n');
 }

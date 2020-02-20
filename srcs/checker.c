@@ -6,12 +6,11 @@
 /*   By: tstripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 14:25:18 by tstripeb          #+#    #+#             */
-/*   Updated: 2020/02/18 16:07:33 by tstripeb         ###   ########.fr       */
+/*   Updated: 2020/02/20 14:11:10 by tstripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pushswap.h"
-#include <stdio.h>
 
 int		main(int ac, char **av)
 {
