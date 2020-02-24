@@ -6,7 +6,7 @@
 /*   By: tstripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 14:17:33 by tstripeb          #+#    #+#             */
-/*   Updated: 2020/02/20 17:26:47 by tstripeb         ###   ########.fr       */
+/*   Updated: 2020/02/24 15:52:46 by tstripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 typedef struct		s_mas
 {
 	int				elem;
+	int				i;
+	int				sort;
 	struct s_mas	*next;
 }					t_mas;
 
@@ -54,16 +56,12 @@ int					ft_sorting_good(t_mas *a);
 void				ft_sort_del(t_sort *sort);
 void				ft_mas_del(t_mas *mas);
 char				**freetime(char **av, int nums, int flag_v);
-void				ft_working(t_sort *sort);
-int					ft_working_continue(t_sort *sort);
-int					ft_working_finish(t_sort *sort);
-void				ft_returntoa(t_sort *sort);
-int					ft_comparefirsttwoelem(t_mas *mas, int flag);
-int					ft_increasetolast(t_mas *mas);
-int					ft_increasewithsecond(t_mas *mas);
 void				ft_working_to_three(t_sort *sort);
 void				ft_working_to_five(t_sort *sort);
 void				ft_working_to_five_help(t_sort *sort);
+int					ft_working_to_five_htwo(t_mas *a, t_mas *b, t_sort *sort);
+void				ft_five_help(t_sort *sort);
 void				ft_putcommand(char *command);
+//int					ft_checking_nbr_sort(t_mas *mas);
 
 #endif

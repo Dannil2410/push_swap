@@ -6,68 +6,71 @@
 /*   By: tstripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 16:19:53 by tstripeb          #+#    #+#             */
-/*   Updated: 2020/02/19 18:01:27 by tstripeb         ###   ########.fr       */
+/*   Updated: 2020/02/24 15:52:48 by tstripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pushswap.h"
 
-int		ft_comparefirsttwoelem(t_mas *mas, int flag)
+void	ft_five_help(t_sort *sort)
 {
-	if (mas && mas->next)
-	{
-		if (mas->elem > mas->next->elem && flag == 1)
-			return (1);
-		else if (mas->elem < mas->next->elem && flag == 1)
-			return (0);
-		if (mas->elem < mas->next->elem && flag == 2)
-			return (1);
-		else if (mas->elem > mas->next->elem && flag == 2)
-			return (0);
-	}
-	return (0);
+	if (sort->b->elem < sort->b->next->elem)
+		ft_check_and_work("sb", sort, 1);
+	ft_check_and_work("pa", sort, 1);
+	ft_check_and_work("sa", sort, 1);
 }
 
-int		ft_increasetolast(t_mas *mas)
+void	ft_working_to_five_help(t_sort *sort)
 {
-	t_mas	*tmp;
-
-	tmp = mas;
-	while (tmp->next->next)
+	if (sort->b && sort->b->elem > sort->a->elem &&
+			sort->b->elem < sort->a->next->elem)
 	{
-		if (tmp->elem > tmp->next->elem)
-			return (0);
-		tmp = tmp->next;
-		if (tmp->next->next == NULL)
+		(sort->b->next && sort->b->next->elem > sort->a->elem &&
+		sort->b->next->elem < sort->a->next->elem ? ft_five_help(sort) : 0);
+		ft_check_and_work("pa", sort, 1);
+		ft_check_and_work("sa", sort, 1);
+	}
+	else if (sort->b && sort->b->elem > sort->a->elem &&
+			sort->b->elem > sort->a->next->elem)
+	{
+		if (sort->b->next && sort->b->elem < sort->b->next->elem)
+			ft_check_and_work("sb", sort, 1);
+		if (sort->b->elem > ft_last_el_of_l(sort->a)->elem)
+			ft_check_and_work("pa", sort, 1);
+		else
 		{
-			if (mas->elem > tmp->next->elem)
-				return (1);
-			else
-				return (2);
+			while (sort->b->elem > sort->a->elem ||
+					sort->b->elem < ft_last_el_of_l(sort->a)->elem)
+				ft_check_and_work("rra", sort, 1);
+			ft_check_and_work("pa", sort, 1);
 		}
 	}
-	return (0);
 }
 
-int		ft_increasewithsecond(t_mas *mas)
+int		ft_working_to_five_htwo(t_mas *a, t_mas *b, t_sort *sort)
 {
-	t_mas	*tmp;
-	int		result;
+	int		flag;
 
-	tmp = mas->next;
-	result = 1;
-	while (tmp && tmp->next)
+	flag = 0;
+	if (b->elem < a->elem || b->next->elem < a->elem)
 	{
-		if (tmp->elem > tmp->next->elem)
-		{
-			result = 0;
-			break ;
-		}
-		tmp = tmp->next;
+		flag++;
+		if (b->elem < a->elem && b->next->elem < a->elem)
+			flag++;
 	}
-	if (mas->elem > mas->next->elem && result == 1 && mas->elem > tmp->elem)
-		return (result);
-	else if (mas->elem < mas->next->elem && result == 1)
-		return (result + 1);
-	return (result);
+	if (flag > 0)
+	{
+		if (flag > 1)
+		{
+			if (b->elem < b->next->elem)
+				ft_check_and_work("sb", sort, 1);
+			ft_check_and_work("pa", sort, 1);
+			ft_check_and_work("pa", sort, 1);
+			return (0);
+		}
+		if (b->elem > b->next->elem)
+			ft_check_and_work("sb", sort, 1);
+		ft_check_and_work("pa", sort, 1);
+	}
+	return (1);
 }

@@ -6,7 +6,7 @@
 #    By: tstripeb <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/16 12:35:42 by tstripeb          #+#    #+#              #
-#    Updated: 2020/02/20 17:29:02 by tstripeb         ###   ########.fr        #
+#    Updated: 2020/02/24 15:30:05 by tstripeb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ NAME_P = push_swap
 SRCS_C = srcs/checker.c srcs/stack.c srcs/message.c srcs/valid.c srcs/stack_utils.c srcs/commands_for_checker.c srcs/commands_spr.c
 
 SRCS_P = srcs/push_swap.c srcs/commands_for_pushswap.c srcs/stack.c srcs/message.c srcs/valid.c srcs/commands_spr.c srcs/stack_utils.c srcs/commands_for_checker.c
+
 
 FLAGS = -Wall -Werror -Wextra -I./includes
 

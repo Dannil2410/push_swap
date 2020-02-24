@@ -6,7 +6,7 @@
 /*   By: tstripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 16:32:39 by tstripeb          #+#    #+#             */
-/*   Updated: 2020/02/20 16:35:21 by tstripeb         ###   ########.fr       */
+/*   Updated: 2020/02/24 13:28:55 by tstripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ t_mas	*ft_one_elem_of_l(int number)
 	if ((new = (t_mas *)malloc(sizeof(t_mas))) == NULL)
 		return (NULL);
 	new->elem = number;
+	new->i = 0;
+	new->sort = 0;
 	new->next = NULL;
 	return (new);
 }

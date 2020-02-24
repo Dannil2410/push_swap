@@ -6,7 +6,7 @@
 /*   By: tstripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 16:36:13 by tstripeb          #+#    #+#             */
-/*   Updated: 2020/02/20 17:41:41 by tstripeb         ###   ########.fr       */
+/*   Updated: 2020/02/21 16:36:21 by tstripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void	ft_check_and_work(char *command, t_sort *sort, int flag)
 		ft_commands_rr_rrr(&sort->a, &sort->b, 2);
 	else
 		ft_error(sort);
-	(flag == 1 ? ft_putcommand(command) : 0);
+	(flag > 0 ? ft_putcommand(command) : 0);
 }
 
 void	ft_read_commands(t_sort *sort)
