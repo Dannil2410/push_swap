@@ -6,13 +6,13 @@
 /*   By: tstripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 16:36:13 by tstripeb          #+#    #+#             */
-/*   Updated: 2020/02/21 16:36:21 by tstripeb         ###   ########.fr       */
+/*   Updated: 2020/03/06 16:53:01 by tstripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pushswap.h"
 
-int		ft_sorting_good(t_mas *a)
+int		sorting_good(t_mas *a)
 {
 	t_mas	*tmp;
 	int		nbr;
@@ -35,7 +35,7 @@ int		ft_sorting_good(t_mas *a)
 	return (1);
 }
 
-void	ft_conclusionab(t_mas *a, t_mas *b)
+void	conclusionab(t_mas *a, t_mas *b)
 {
 	char	*el;
 
@@ -64,51 +64,53 @@ void	ft_conclusionab(t_mas *a, t_mas *b)
 	}
 }
 
-void	ft_check_and_work(char *command, t_sort *sort, int flag)
+void	check_and_work(char *command, t_sort *sort, int flag)
 {
 	if (ft_strcmp(command, "sa") == 0)
-		ft_commands_s(sort->a, sort->b, 1);
+		commands_s(sort->a, sort->b, 1);
 	else if (ft_strcmp(command, "sb") == 0)
-		ft_commands_s(sort->a, sort->b, 2);
+		commands_s(sort->a, sort->b, 2);
 	else if (ft_strcmp(command, "ss") == 0)
-		ft_commands_s(sort->a, sort->b, 3);
+		commands_s(sort->a, sort->b, 3);
 	else if (ft_strcmp(command, "pa") == 0)
-		ft_commands_p(&sort->a, &sort->b);
+		commands_p(&sort->a, &sort->b);
 	else if (ft_strcmp(command, "pb") == 0)
-		ft_commands_p(&sort->b, &sort->a);
+		commands_p(&sort->b, &sort->a);
 	else if (ft_strcmp(command, "ra") == 0)
-		ft_commands_r(&sort->a);
+		commands_r(&sort->a);
 	else if (ft_strcmp(command, "rb") == 0)
-		ft_commands_r(&sort->b);
+		commands_r(&sort->b);
 	else if (ft_strcmp(command, "rr") == 0)
-		ft_commands_rr_rrr(&sort->a, &sort->b, 1);
+		commands_rr_rrr(&sort->a, &sort->b, 1);
 	else if (ft_strcmp(command, "rra") == 0)
-		ft_commands_rr(&sort->a);
+		commands_rr(&sort->a);
 	else if (ft_strcmp(command, "rrb") == 0)
-		ft_commands_rr(&sort->b);
+		commands_rr(&sort->b);
 	else if (ft_strcmp(command, "rrr") == 0)
-		ft_commands_rr_rrr(&sort->a, &sort->b, 2);
+		commands_rr_rrr(&sort->a, &sort->b, 2);
 	else
-		ft_error(sort);
-	(flag > 0 ? ft_putcommand(command) : 0);
+		error(sort);
+	(flag > 0 ? putcommand(command) : 0);
 }
 
-void	ft_read_commands(t_sort *sort)
+void	read_commands(t_sort *sort)
 {
 	char	*command;
 
+	if (!sort->a)
+		return ;
 	while (get_next_line(0, &command) > 0)
 	{
-		ft_check_and_work(command, sort, 0);
+		check_and_work(command, sort, 0);
 		if (command)
 			ft_strdel(&command);
 		if (sort->flag_v)
 		{
-			ft_conclusionab(sort->a, sort->b);
+			conclusionab(sort->a, sort->b);
 			ft_putstr("\na | b\n-----\n");
 		}
 	}
-	if (sort->b == NULL && ft_sorting_good(sort->a))
+	if (sort->b == NULL && sorting_good(sort->a))
 		ft_putstr("OK\n");
 	else
 		ft_putstr("KO\n");

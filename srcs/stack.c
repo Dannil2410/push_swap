@@ -6,13 +6,13 @@
 /*   By: tstripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 16:32:39 by tstripeb          #+#    #+#             */
-/*   Updated: 2020/02/24 13:28:55 by tstripeb         ###   ########.fr       */
+/*   Updated: 2020/03/06 17:07:20 by tstripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pushswap.h"
 
-t_mas	*ft_one_elem_of_l(int number)
+t_mas	*one_elem_of_l(int number)
 {
 	t_mas *new;
 
@@ -20,29 +20,29 @@ t_mas	*ft_one_elem_of_l(int number)
 		return (NULL);
 	new->elem = number;
 	new->i = 0;
-	new->sort = 0;
+	new->sort = 1;
 	new->next = NULL;
 	return (new);
 }
 
-t_mas	*ft_create_masi(t_mas **tmp, int number)
+t_mas	*create_masi(t_mas **tmp, int number)
 {
 	t_mas *new;
 	t_mas *old;
 
-	if ((new = ft_one_elem_of_l(number)) == NULL)
+	if ((new = one_elem_of_l(number)) == NULL)
 		return (NULL);
 	if (*tmp == NULL)
 	{
 		*tmp = new;
 		return (*tmp);
 	}
-	old = ft_last_el_of_l(*tmp);
+	old = last_el_of_l(*tmp);
 	old->next = new;
 	return (old);
 }
 
-void	ft_create_list_masa(t_sort *sort, int ac, char **av)
+void	create_list_masa(t_sort *sort, int ac, char **av)
 {
 	int	i;
 	int	value;
@@ -59,19 +59,19 @@ void	ft_create_list_masa(t_sort *sort, int ac, char **av)
 		else
 		{
 			value = ft_atoi(av[i]);
-			if ((ft_valid_val(value, av[i]) == 0) ||
-					(ft_double_val(sort->a, value) == 0))
-				ft_error(sort);
-			if ((ft_create_masi(&sort->a, value)) == NULL)
-				ft_error(sort);
+			if ((valid_val(value, av[i]) == 0) ||
+					(double_val(sort->a, value) == 0))
+				error(sort);
+			if ((create_masi(&sort->a, value)) == NULL)
+				error(sort);
 		}
 		i++;
 	}
-	sort->nums = ft_nums_el_of_mas(sort->a);
+	sort->nums = nums_el_of_mas(sort->a);
 	av = (ac == 2 ? freetime(av, sort->nums, sort->flag_v) : NULL);
 }
 
-t_sort	*ft_create_stack_sort(int ac, char **av)
+t_sort	*create_stack_sort(int ac, char **av)
 {
 	t_sort *new;
 
@@ -79,10 +79,17 @@ t_sort	*ft_create_stack_sort(int ac, char **av)
 		return (NULL);
 	new->a = NULL;
 	new->b = NULL;
+	new->max_sort = NULL;
 	new->nums = 0;
 	new->len_b = 0;
 	new->flag_v = 0;
-	ft_create_list_masa(new, ac, av);
+	new->tmp_a = 0;
+	new->tmp_b = 0;
+	new->t_place = 0;
+	new->need_a = 0;
+	new->need_b = 0;
+	new->n_place = 0;
+	create_list_masa(new, ac, av);
 	new->len_a = new->nums;
 	return (new);
 }

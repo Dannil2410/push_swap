@@ -6,7 +6,7 @@
 /*   By: tstripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 15:28:05 by tstripeb          #+#    #+#             */
-/*   Updated: 2020/02/24 15:10:03 by tstripeb         ###   ########.fr       */
+/*   Updated: 2020/03/06 17:01:35 by tstripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	**freetime(char **av, int nums, int flag_v)
 	return (0);
 }
 
-void	ft_mas_del(t_mas *mas)
+void	mas_del(t_mas *mas)
 {
 	t_mas	*tmp;
 
@@ -39,21 +39,21 @@ void	ft_mas_del(t_mas *mas)
 	}
 }
 
-void	ft_sort_del(t_sort *sort)
+void	sort_del(t_sort *sort)
 {
-	ft_mas_del(sort->a);
-	ft_mas_del(sort->b);
+	mas_del(sort->a);
+	mas_del(sort->b);
 	ft_memdel((void **)(&sort));
 }
 
-void	ft_error(t_sort *sort)
+void	error(t_sort *sort)
 {
-	ft_sort_del(sort);
+	sort_del(sort);
 	write(1, "Error\n", 6);
 	exit(0);
 }
 
-void	ft_putcommand(char *command)
+void	putcommand(char *command)
 {
 	ft_putstr(command);
 	ft_putchar('\n');
