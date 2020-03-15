@@ -6,7 +6,7 @@
 /*   By: sazalee <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/17 17:28:08 by sazalee           #+#    #+#             */
-/*   Updated: 2020/02/04 16:33:48 by tstripeb         ###   ########.fr       */
+/*   Updated: 2020/03/15 20:40:59 by tstripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,6 @@ void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
-int                 get_next_line(const int fd, char **line);
+int					get_next_line(const int fd, char **line);
 
 #endif

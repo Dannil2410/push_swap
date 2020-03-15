@@ -6,7 +6,7 @@
 /*   By: tstripeb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 13:50:37 by tstripeb          #+#    #+#             */
-/*   Updated: 2020/03/06 18:29:44 by tstripeb         ###   ########.fr       */
+/*   Updated: 2020/03/15 20:40:08 by tstripeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,10 @@ int		main(int ac, char **av)
 	if (sort->len_a <= 3)
 		working_to_three(sort);
 	else if (sort->len_a <= 5)
-		working_to_five(sort);
+	{
+		if (!sorting_good(sort->a))
+			working_to_five(sort);
+	}
 	else
 		working_with_other(sort);
 	sort_del(sort);
